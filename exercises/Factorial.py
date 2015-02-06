@@ -6,9 +6,6 @@
 
 from unittest import main, TestCase
 
-def factorial (n) :
-    ...
-
 class MyUnitTests (TestCase) :
     def test_0 (self) :
         self.assertEqual(factorial(0), 1)

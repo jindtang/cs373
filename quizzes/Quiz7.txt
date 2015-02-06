@@ -1,0 +1,39 @@
+--
+CS373: Quiz #7 (7 pts)
+--
+
+--------------------------------------------------------------------------
+ 1. What is refactoring?
+    [XP: Ch. 11, Pg. 76]
+    (1 pt)
+--
+
+the process of improving the code's structure while preserving its
+function
+
+--------------------------------------------------------------------------
+ 2. In pair programming which of the partners should do most of the
+    driving?
+    [XP: Ch. 12, Pg. 90]
+    (1 pt)
+--
+
+the one who is least sure of what's being done
+
+--------------------------------------------------------------------------
+ 3. What properties does a Python tuple have that are different in a
+    Python list?
+    (1 pt)
+--
+
+a Python tuple is immutable
+
+--------------------------------------------------------------------------
+ 4. What properties does a Python set have that are different in a
+    Python list?
+    (3 pts)
+--
+
+order doesn't matter
+can't have duplicates
+elements must be hashable

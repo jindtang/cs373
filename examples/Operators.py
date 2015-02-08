@@ -222,9 +222,6 @@ assert a[1] == 3 # list index
 a[1] += 1
 assert a[1] == 4
 
-assert [2, 3, 4][1] == 3 # list index
-[2, 3, 4][1] += 1        # ?
-
 a = (2, 3, 4)
 assert a[1] == 3 # tuple index
 #a[1] += 1       # TypeError: 'tuple' object does not support item assignment
@@ -248,6 +245,11 @@ c = a + b                 # tuple concatenation
 assert c is not (2, 3, 4)
 assert c ==     (2, 3, 4)
 assert c !=     [2, 3, 4]
+
+s = "abc"
+t = 2 * s                # string replication
+assert t is not "abcabc"
+assert t ==     "abcabc"
 
 a = [2, 3, 4]
 b = 2 * a                          # list replication

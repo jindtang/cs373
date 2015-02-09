@@ -5,6 +5,8 @@
 // Variables.js
 // -------------
 
+// http://www.w3schools.com/js/js_variables.asp
+
 function assert (b) {
     "use strict";
     if (!b) {

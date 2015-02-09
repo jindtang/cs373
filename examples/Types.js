@@ -5,6 +5,8 @@
 // Types.js
 // --------
 
+// http://www.w3schools.com/js/js_datatypes.asp
+
 function assert (b) {
     "use strict";
     if (!b) {

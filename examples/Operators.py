@@ -76,15 +76,15 @@ assert type(i) is int
 assert i == 2
 assert j == 2
 
-i = 4.0
+i = 5.0
 j = 2
 k = i // j              # floor division
-assert i       == 4.0
+assert i       == 5.0
 assert j       == 2
 assert type(k) is float
 assert str(k)  == "2.0"
 
-i = 4.0
+i = 5.0
 j = 2
 i //= j
 assert type(i) is float

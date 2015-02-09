@@ -5,6 +5,8 @@
 // Operators.js
 // ------------
 
+// http://www.w3schools.com/js/js_operators.asp
+
 function assert (b) {
     "use strict";
     if (!b) {

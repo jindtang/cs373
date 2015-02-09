@@ -1,0 +1,19 @@
+--
+CS373: Quiz #8 (7 pts)
+--
+
+--------------------------------------------------------------------------
+ 1. What is tail recursion?
+    (2 pts)
+--
+
+a kind of recursion that does not need a stack and
+that can automatically be converted to iteration
+
+--------------------------------------------------------------------------
+ 2. In Python what's difference between / and //?
+    (4 pts)
+--
+
+/  is true  division, always produces a float
+// is floor division, might  produce  an int or a float, but truncated

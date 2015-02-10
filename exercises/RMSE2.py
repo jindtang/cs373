@@ -102,13 +102,8 @@ def rmse_zip_generator_sum (a, p) :
     assert(hasattr(a, "__iter__"))
     assert(hasattr(p, "__iter__"))
     z = zip(a, p)
-    v = sum(((x - y) ** 2 for x, y in z))
+    v = sum((x - y) ** 2 for x, y in z)
     return sqrt(v / len(a))
-
-def testit (f) :
-    a = 10000 * [1]
-    p = 10000 * [5]
-    assert f(a, p) == 4
 
 def test (f) :
     print(f.__name__)
@@ -116,7 +111,8 @@ def test (f) :
     assert f((2, 3, 4), (3, 2, 5)) == 1
     assert f((2, 3, 4), (4, 1, 6)) == 2
     assert f((2, 3, 4), (4, 3, 2)) == 1.632993161855452
-    print("{:.2f} milliseconds".format(timeit("testit(" + f.__name__ + ")", "from __main__ import " + f.__name__ + ", testit", number = 100) * 1000))
+    t = timeit("assert " + f.__name__ + "(10000 * [1], 10000 * [5]) == 4", "from __main__ import " + f.__name__, number = 100)
+    print("{:.2f} milliseconds".format(t * 1000))
     print()
 
 print("RMSE2.py")
@@ -138,29 +134,29 @@ print("Done.")
 """
 rmse.py
 
-3.3.3 (default, Jan 19 2014, 10:13:09)
-[GCC 4.2.1 Compatible Apple LLVM 5.0 (clang-500.2.79)]
+3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
 
 rmse_while
-470.65 milliseconds
+503.85 milliseconds
 
 rmse_range_for
-371.64 milliseconds
+365.85 milliseconds
 
 rmse_zip_for
-323.04 milliseconds
+336.49 milliseconds
 
 rmse_zip_reduce
-434.11 milliseconds
+444.22 milliseconds
 
 rmse_map_sum
-364.04 milliseconds
+370.78 milliseconds
 
 rmse_zip_list_sum
-305.51 milliseconds
+325.44 milliseconds
 
 rmse_zip_generator_sum
-331.22 milliseconds
+341.97 milliseconds
 
 Done.
 """

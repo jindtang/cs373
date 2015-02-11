@@ -22,9 +22,10 @@ def cycle_length (n) :
 
 class MyUnitTests (TestCase) :
     def test_1 (self) :
-        self.assertEqual(cycle_length( 1), 1)
+        self.assertEqual(cycle_length(1), 1)
 
-main()
+if __name__ == "__main__" :
+    main()
 
 """ #pragma: no cover
 % coverage3 help

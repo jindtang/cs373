@@ -6,6 +6,7 @@
 
 from functools import reduce
 from math      import sqrt
+from numpy     import mean, sqrt, square, subtract
 from sys       import version
 from timeit    import timeit
 
@@ -105,6 +106,13 @@ def rmse_zip_generator_sum (a, p) :
     v = sum((x - y) ** 2 for x, y in z)
     return sqrt(v / len(a))
 
+def rmse_numpy (a, p) :
+    """
+    O(n) in space
+    O(n) in time
+    """
+    return sqrt(mean(square(subtract(a, p))))
+
 def test (f) :
     print(f.__name__)
     assert f((2, 3, 4), (2, 3, 4)) == 0
@@ -128,6 +136,7 @@ test(rmse_zip_reduce)
 test(rmse_map_sum)
 test(rmse_zip_list_sum)
 test(rmse_zip_generator_sum)
+test(rmse_numpy)
 
 print("Done.")
 
@@ -138,25 +147,28 @@ rmse.py
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
 
 rmse_while
-503.85 milliseconds
+1393.41 milliseconds
 
 rmse_range_for
-365.85 milliseconds
+1268.21 milliseconds
 
 rmse_zip_for
-336.49 milliseconds
+924.56 milliseconds
 
 rmse_zip_reduce
-444.22 milliseconds
+1246.97 milliseconds
 
 rmse_map_sum
-370.78 milliseconds
+1019.86 milliseconds
 
 rmse_zip_list_sum
-325.44 milliseconds
+891.52 milliseconds
 
 rmse_zip_generator_sum
-341.97 milliseconds
+910.61 milliseconds
+
+rmse_numpy
+325.95 milliseconds
 
 Done.
 """

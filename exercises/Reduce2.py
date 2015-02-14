@@ -8,7 +8,7 @@
 
 from functools import reduce
 from operator  import add, mul, sub
-from unittest  import TestCase, TestLoader, TestSuite, TextTestRunner
+from unittest  import main, TestCase
 
 def reduce_for_range (bf, a, v) :
     for i in range(len(a)) :
@@ -52,12 +52,12 @@ def bind (f) :
 
         def test_7 (self) :
             assert f(add, ("abc",     "de"),   "") == "abcde"
+
     return MyUnitTests
 
+reduce_for_range_tests = bind(reduce_for_range)
+reduce_while_tests     = bind(reduce_while)
+reduce_for_tests       = bind(reduce_for)
+
 if __name__ == "__main__" :
-    s = TestSuite()
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(reduce_for_range)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(reduce_while)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(reduce_for)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(reduce)))
-    TextTestRunner().run(s)
+    main()

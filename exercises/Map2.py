@@ -6,7 +6,7 @@
 
 # https://docs.python.org/3.4/library/functions.html#map
 
-from unittest import TestCase, TestLoader, TestSuite, TextTestRunner
+from unittest import main, TestCase
 
 def map_for_range (uf, a) :
     for i in range(len(a)) :
@@ -44,13 +44,13 @@ def bind (f) :
         def test_4 (self) :
             a = ("abc", "def", "ghi")
             assert list(f(lambda x : x + "xyz", a)) == ["abcxyz", "defxyz", "ghixyz"]
+
     return MyUnitTests
 
+map_for_range_tests = bind(map_for_range)
+map_while_tests     = bind(map_while)
+map_for_tests       = bind(map_for)
+map_generator_tests = bind(map_generator)
+
 if __name__ == "__main__" :
-    s = TestSuite()
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(map_for_range)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(map_while)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(map_for)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(map_generator)))
-    s.addTest(TestLoader().loadTestsFromTestCase(bind(map)))
-    TextTestRunner().run(s)
+    main()
